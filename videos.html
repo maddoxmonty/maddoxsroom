@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Maddox's Videos</title>
+		<link rel="icon" type="image/gif" href="gifs/mstar.gif">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<style>
+			body {
+    background-image: url('pics/FilmPix2.JPG');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }			
+  
+			
+  
+			.gallery {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 20px;
+				justify-content: center;
+			}
+			
+			.video-card {
+				background-color: blue;
+				color: white;
+				width: 300px;
+				padding: 15px;
+				cursor: pointer;
+				border-radius: 8px;
+			}
+						
+			.video-card:hover {
+				transform: scale(1.05);
+				box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			}
+			
+			.video-card video {
+				width: 100%;
+				border: inset;
+				border-color:#DCD6A3 ;
+			}
+			
+			.lightbox {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.8);
+				display: none;
+				justify-content: center;
+				align-items: center;
+				z-index: 999;
+			}
+			
+			.lightbox video {
+				width: 80%;
+				border-radius: 10px;
+			}
+
+			.lightbox.active {
+				display: flex;
+			}
+
+			.lightbox-close {
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				font-size: 2rem;
+				color: white;
+				cursor: pointer;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+				<h3>Links</h3>
+					<ul>
+					  <li><a class="nav" href="index.html" >Home</a></li>
+						<li><a class="nav" href="musicpage.html">Music</a></li>
+						<li><a class="nav" href="ComingSoon.html">Blog</a></li>
+						<li><a class="nav" href="pics.html">Pics</a></li>
+						<li><a class="nav" href="videos.html">Videos</a></li>
+					</ul>
+		</div>
+		<div class="gallery">
+			<div class="video-card" onclick="openLightbox('vids/LuvSoraVid.mp4')">
+				<video src="vids/LuvSoraVid.mp4" muted autoplay loop playsinline preload="metadata"></video>
+				<h3>Luv;Sora Music Collage</h3>
+				<p>A clutter of Motion Pictures - Luv;Sora</p>
+			</div>
+			
+			<div class="video-card" onclick="openLightbox('vids/MK_SNBV_Teaser_Vid2.mp4')">
+				<video src="vids/MK_SNBV_Teaser_Vid2.mp4" muted autoplay loop playsinline preload="metadata"></video>
+				<h3>Sunset Blvd Video</h3>
+				<p>A clutter of Motion Pictures - Sunset Blvd</p>
+			</div>
+			
+			<div class="video-card" onclick="openLightbox('vids/THE HEARTBREAK SKID (Podcast).mp4')">
+				<video src="vids/THE HEARTBREAK SKID (Podcast).mp4" muted autoplay loop playsinline preload="metadata"></video>
+				<h3>The Heartbreak Skid (Podcast)</h3>
+				<p>A Story of Arc</p>
+			</div>
+			
+			<div class="video-card" onclick="openLightbox('vids/UG_Chauncie.mp4')">
+				<video src="vids/UG_Chauncie.mp4" muted autoplay loop playsinline preload="metadata"></video>
+				<h3>Underground Gallery Ep 1 - ChauncieJo</h3>
+				<p>A Spotlight on Chauncie</p>
+			</div>
+			
+			<div class="video-card" onclick="openLightbox('vids/Vlog01.mp4')">
+				<video src="vids/Vlog01.mp4" muted autoplay loop playsinline preload="metadata"></video>
+				<h3>Maddox's Vlog 01 - Sunset Blvd Shoot</h3>
+				<p>An exclusive look</p>
+			</div>
+			
+		</div>
+		
+		<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+			<span class="lightbox-close" onclick="closeLightbox()">×</span>
+			<video id="lightbox-video" controls autoplay></video>
+		</div>
+	
+		<script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const video = document.getElementById('lightbox-video');
+      video.src = src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      const video = document.getElementById('lightbox-video');
+      video.pause();
+      video.src = '';
+      lightbox.classList.remove('active');
+    }
+	
+	document.getElementById('lightbox-video').addEventListener('click', function(event) {
+    event.stopPropagation();
+  });
+  </script>
+	
+	</body>
+
+</html>

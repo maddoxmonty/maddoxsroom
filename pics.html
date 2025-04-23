@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Maddox's Pics</title>
+		<link rel="icon" type="image/gif" href="gifs/mstar.gif">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<style>
+body {
+    background-image: url('pics/FilmPix12.JPG');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 50px;
+    grid-template-rows: auto;
+  }
+
+.image-gallery img {
+    width: 100%;
+    max-width: auto;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+@media (max-width: 1200px) {
+    .image-gallery {
+      grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+    }  
+	.image-gallery img {
+      max-width: 200px;
+    }
+	}
+	
+	@media (max-width: 900px) {
+    .image-gallery {
+      grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    }
+    .image-gallery img {
+      max-width: 150px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .image-gallery {
+      grid-template-columns: 1fr; /* 1 image per row */
+    }
+    .image-gallery img {
+      max-width: 100px;
+    }
+  }
+  
+  #myModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%; /* Maximum width of 90% of viewport width */
+    max-height: 90vh; /* Maximum height of 90% of viewport height */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Ensure the image scales proportionally */
+  }
+  
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 100px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .gallery-item:hover {
+	transform: scale(1.05);
+	cursor: pointer;
+  }
+  
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+    z-index: 10;
+	}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+		</style>
+	</head>
+	<body>
+	<div id="nav">
+				<h3>Links</h3>
+					<ul>
+					  <li><a class="nav" href="index.html" >Home</a></li>
+						<li><a class="nav" href="musicpage.html">Music</a></li>
+						<li><a class="nav" href="ComingSoon.html">Blog</a></li>
+						<li><a class="nav" href="pics.html">Pics</a></li>
+						<li><a class="nav" href="videos.html">Videos</a></li>
+					</ul>
+			</div>
+			<div class="image-gallery">
+				<img src="pics/FilmPix12.JPG" alt="Image 1" class="gallery-item">
+				<img src="pics/FilmPix1.JPG" alt="Image 2" class="gallery-item">
+				<img src="pics/FilmPix2.JPG" alt="Image 3" class="gallery-item">
+				<img src="pics/FilmPix3.JPG" alt="Image 4" class="gallery-item">
+				<img src="pics/FilmPix4.JPG" alt="Image 5" class="gallery-item">
+				<img src="pics/FilmPix5.JPG" alt="Image 6" class="gallery-item">
+				<img src="pics/FilmPix6.JPG" alt="Image 7" class="gallery-item">
+				<img src="pics/FilmPix7.JPG" alt="Image 8" class="gallery-item">
+				<img src="pics/FilmPix8.JPG" alt="Image 9" class="gallery-item">
+				<img src="pics/FilmPix9.JPG" alt="Image 10" class="gallery-item">
+				<img src="pics/FilmPix11.JPG" alt="Image 11" class="gallery-item">
+				<img src="pics/FilmPix27.JPG" alt="Image 12" class="gallery-item">
+				<img src="pics/FilmPix13.JPG" alt="Image 13" class="gallery-item">
+				<img src="pics/FilmPix14.JPG" alt="Image 14" class="gallery-item">
+				
+				<img src="pics/FilmPix16.JPG" alt="Image 16" class="gallery-item">
+				
+				<img src="pics/FilmPix18.JPG" alt="Image 18" class="gallery-item">
+				<img src="pics/FilmPix19.JPG" alt="Image 19" class="gallery-item">
+				<img src="pics/FilmPix20.JPG" alt="Image 20" class="gallery-item">
+				<img src="pics/FilmPix21.JPG" alt="Image 21" class="gallery-item">
+				<img src="pics/FilmPix22.JPG" alt="Image 22" class="gallery-item">
+				<img src="pics/FilmPix23.JPG" alt="Image 23" class="gallery-item">
+				<img src="pics/FilmPix24.JPG" alt="Image 24" class="gallery-item">
+				<img src="pics/FilmPix25.JPG" alt="Image 25" class="gallery-item">
+				<img src="pics/FilmPix26.JPG" alt="Image 26" class="gallery-item">
+				
+			</div>
+		
+			<div id="myModal" class="modal">
+				<span class="close">&times;</span>
+				<span class="prev" onclick="changeImage(-1)">&#10094;</span>
+				<img class="modal-content" id="img01">
+				<span class="next" onclick="changeImage(1)">&#10095;</span>
+			</div>
+			
+			<script>
+			<!--Get Variables-->
+	var modal = document.getElementById('myModal');
+	var images = document.querySelectorAll('.gallery-item');
+	var modalImg = document.getElementById('img01');
+	var currentIndex = 0;
+	
+	images.forEach(function(img, index) {
+		img.onclick = function() {
+			modal.style.display = "flex";
+			modalImg.src = this.src;
+			currentIndex = index;
+		};
+	});	
+	
+	var span = document.getElementsByClassName("close")[0];
+	
+	span.onclick = function() {
+		modal.style.display = "none";
+	};
+	
+	window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+	};
+	
+	function changeImage(direction) {
+		currentIndex += direction;
+		if (currentIndex < 0) {
+			currentIndex = images.length - 1;
+		}
+		if (currentIndex >= images.length) {
+			currentIndex = 0;
+		}
+		
+		modalImg.src = images[currentIndex].src;
+	}
+			</script>
+	</body>
+</html>

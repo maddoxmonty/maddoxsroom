@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Maddox's Music</title>
+		<link rel="icon" type="image/gif" href="gifs/mstar.gif">
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<style>
+		
+body {
+    background-image: url('backgrounds/ps2 w_blocks.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+  }		
+		
+a.soundcloud-link:link,
+a.soundcloud-link:visited {
+  color: blue;  /* Make SoundCloud link blue */
+}
+
+a.soundcloud-link:hover {
+  color: lightblue; /* Optional: change color when hovered */
+  text-decoration: underline; /* Optional: underline when hovered */
+}
+
+a.soundcloud-link:active {
+  color: darkblue; /* Optional: darker blue when clicked */
+}
+
+.song-list button {
+    background-color:gray;
+    align-content: center;
+    font-size: 15px;
+    width: 780px;
+	border-style: outset;
+	border-width: 3;
+    cursor: pointer;
+}
+        
+  .song-list button:hover {
+  background-color: #007BFF; 
+  color: white; 
+  transform: scale(1.05); 
+  cursor: pointer; 
+}
+
+#footer {
+  clear: both;
+  text-align: center;
+}
+
+#song-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+#song-artwork {
+			border-style: inset;
+    border-width: 3px;  
+    width: 80%;        
+    height: auto;      
+    display: block;
+    margin: 5px auto;
+        }
+#song-name{
+	background-color: #68e389;
+	border: 5px inset;
+	display: flex;
+	height: 40px;
+	width: 400px;
+	justify-self: center;
+	align-items: center;
+}
+
+.marquee div {
+	animation: animate 8s linear infinite;
+	padding-left: 100%;
+	display: inline-block;
+}
+
+.marquee {
+	width: 100%;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+
+@keyframes animate{
+	100%{
+	transform: translate(-100%, 0);
+	}
+}
+
+.musicfloat {
+	float: left;
+}
+
+#main {
+	width: 100%;
+	text-align: center;
+}
+
+#slate {
+	background-color: white;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+}
+
+#gif-ctn {
+        display: flex;
+		flex-direction: column;
+		margin-right: auto;
+		margin-left: auto;
+		align-items: center;
+		
+}
+
+#footer {
+  clear: both;
+  text-align: center;
+  margin-left: auto;
+	margin-right: auto;
+}
+
+
+		</style>
+	</head>
+	<body>
+		
+			<div id="nav">
+			<h3>Links</h3>
+				<ul>
+					<li><a class="nav" href="index.html" >Home</a></li>
+					<li><a class="nav" href="musicpage.html">Music</a></li>
+					<li><a class="nav" href="ComingSoon.html">Blog</a></li>
+					<li><a class="nav" href="pics.html">Pics</a></li>
+					<li><a class="nav" href="videos.html">Videos</a></li>
+				</ul>
+			</div>
+			
+				<div id="song-name">
+			<div>NOW PLAYING:</div>
+			<div class="marquee" style="position: relative">
+				<div><p id="song-title"></p></div>
+			</div>
+		</div>
+		<div id="slate">
+			<div id="header">
+				<h1> My Tunez!</h1>
+			</div>
+			<div id="main">
+				<p>Welcome to the official page for Monty Knox music! Most of this is also availabe on <a href="https://soundcloud.com/monty-knox"target="_blank" class="soundcloud-link">SoundCloud</a></p>				
+					<p>Select a song to see artwork and credits! (Latest songs will be at the top)</p>
+				<div class="song-list">
+					<button onclick="playSong('Songs/SunsetBlvd(DEMO1).wav', 'sngart/sbcov.JPG', 'written and produced by Monty Knox. sample by Beach House', 'sunset blvd - monty knox')">Sunset Blvd</button>
+					<button onclick="playSong('Songs/SUMMERSMOKEDEMO.wav', 'sngart/summersmoke.jpg', 'written and produced by Monty Knox', 'summer;silk - monty knox')">Summer;Silk</button>
+					<button onclick="playSong('Songs/LuvSoraSingle.wav', 'sngart/LSEP.jpg', 'written and produced by Monty Knox. sample by VampireRadioClub', 'luv;sora - monty knox')">Luv;Sora</button>
+					<button onclick="playSong('Songs/ALUMINUMDUSK.wav', 'sngart/aluminum.JPG', 'written and performed by Monty Knox; produced by YUNG CASSIO', 'aluminum dusk - monty knox')">ALUMINUM DUSK</button>
+					<button onclick="playSong('Songs/FEAU.mp3', 'sngart/smokenglass.jpg', 'written and performed by Monty Knox; produced by kayode', 'feau - monty knox')">FEAU</button>
+					<button onclick="playSong('Songs/Smokenglass.mp3', 'sngart/smokenglass.jpg', 'written and performed by Monty Knox; produced by tohruxd','bluntsmokenbrokenglass - monty knox')">BluntSmokeNBrokenGlass</button>
+					<button onclick="playSong('Songs/PalmTreesSnip.mp3', 'sngart/PalmTrees.jpg', 'written and performed by Monty Knox; produced by Flatbrush Zombies','palm trees [snippet] - monty knox')">Palm Trees (Snippet)</button>
+        
+				</div>
+			</div>
+			<div id="footer">
+				<div id="song-info">
+					<img id="song-artwork" src="gifs/disc.gif" alt="Select Song">
+					<p id="song-credits"></p>
+				</div>
+				<audio id="myAudio" controls> </audio>
+   
+			</div>
+		</div>
+		
+			
+		
+		
+		
+		<script>
+		const audio = document.getElementById('myAudio');
+        const artwork = document.getElementById('song-artwork');
+        const credits = document.getElementById('song-credits');
+		const stitle = document.getElementById('song-title');
+		const marquee = document.querySelector('.marquee div');
+
+        function playSong(song, artworkSrc, creditsText, stitleText) {
+		
+		marquee.style.animation = 'none';
+        marquee.offsetHeight; 
+        marquee.style.animation = '';
+		
+        audio.src = song;
+        audio.play();
+        artwork.src = artworkSrc;
+        credits.textContent = creditsText;
+		stitle.textContent = stitleText;
+            
+              
+        }
+			
+		</script>
+	</body>
+</html>
